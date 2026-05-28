@@ -1,0 +1,153 @@
+/* Form */
+.todo-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-base);
+}
+
+.todo-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-xs);
+}
+
+/* List */
+.todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.todo-list__state {
+  display: grid;
+  place-items: center;
+  padding: var(--space-xxl) var(--space-base);
+  color: var(--color-body);
+}
+
+.todo-list__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xxl) var(--space-base);
+  text-align: center;
+  color: var(--color-muted);
+}
+
+.todo-list__empty-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.todo-list__empty-text {
+  font-size: 14px;
+  color: var(--color-body);
+}
+
+/* Card */
+.todo-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-base);
+  padding: var(--space-base);
+}
+
+.todo-card__check {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  border: 1.5px solid var(--color-hairline-strong);
+  border-radius: var(--radius-pill);
+  background-color: transparent;
+  color: var(--color-on-primary);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.todo-card__check:hover {
+  border-color: var(--color-primary);
+}
+
+.todo-card__check--done {
+  background-color: var(--color-success);
+  border-color: var(--color-success);
+  color: #ffffff;
+}
+
+.todo-card__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+}
+
+.todo-card__title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-ink);
+  word-break: break-word;
+}
+
+.todo-card__title--done {
+  text-decoration: line-through;
+  color: var(--color-muted);
+}
+
+.todo-card__description {
+  font-size: 14px;
+  color: var(--color-body);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.todo-card__actions {
+  flex-shrink: 0;
+  display: flex;
+  gap: var(--space-xxs);
+}
+
+/* Filters */
+.todo-filters {
+  display: inline-flex;
+  gap: var(--space-xxs);
+  padding: var(--space-xxs);
+  background-color: var(--color-surface-strong);
+  border-radius: var(--radius-md);
+}
+
+.todo-filters__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  height: 32px;
+  padding: 0 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-body);
+  background-color: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.todo-filters__tab:hover {
+  color: var(--color-ink);
+}
+
+.todo-filters__tab--active {
+  background-color: var(--color-surface-card);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-soft);
+}
+
+.todo-filters__count {
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-muted);
+}
