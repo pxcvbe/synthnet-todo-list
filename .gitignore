@@ -20,4 +20,6 @@ dist-ssr/
 .DS_Store
 *.local
 .claude
+
+# google client secret
 docs/client_secret_*.json

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
 import { Button, Input } from '@/shared/components'
 import { ROUTES } from '@/shared/constants/routes'
@@ -12,6 +13,7 @@ import { AuthShell } from '../components/AuthShell'
 import { GoogleButton } from '../components/GoogleButton'
 
 export function RegisterPage() {
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const [isGoogleLoading, setIsGoogleLoading] = useState(false)
 
@@ -30,10 +32,10 @@ export function RegisterPage() {
         password: values.password,
         fullName: values.fullName,
       })
-      toast.success('Account created! Check your email to confirm, then sign in.')
+      toast.success(t('toast.accountCreated'))
       navigate(ROUTES.login)
     } catch (error) {
-      toast.error(error instanceof Error ? error.message : 'Failed to create account')
+      toast.error(error instanceof Error ? error.message : t('toast.createAccountFailed'))
     }
   }
 
@@ -42,62 +44,62 @@ export function RegisterPage() {
     try {
       await authService.signInWithGoogle()
     } catch (error) {
-      toast.error(error instanceof Error ? error.message : 'Google sign-in failed')
+      toast.error(error instanceof Error ? error.message : t('toast.googleFailed'))
       setIsGoogleLoading(false)
     }
   }
 
   return (
     <AuthShell
-      title="Create account"
-      subtitle="Start organizing your day in seconds."
+      title={t('auth.signUpTitle')}
+      subtitle={t('auth.signUpSubtitle')}
       footer={
         <>
-          Already have an account? <Link to={ROUTES.login}>Sign in</Link>
+          {t('auth.haveAccount')} <Link to={ROUTES.login}>{t('auth.signInLink')}</Link>
         </>
       }
     >
       <form className="auth__form" onSubmit={handleSubmit(onSubmit)} noValidate>
         <Input
-          label="Full name"
+          label={t('auth.fullNameLabel')}
           type="text"
           autoComplete="name"
-          placeholder="Jane Doe"
-          error={errors.fullName?.message}
+          placeholder={t('auth.fullNamePlaceholder')}
+          error={errors.fullName?.message ? t(errors.fullName.message) : undefined}
           {...register('fullName')}
         />
         <Input
-          label="Email"
+          label={t('auth.emailLabel')}
           type="email"
           autoComplete="email"
-          placeholder="you@example.com"
-          error={errors.email?.message}
+          placeholder={t('auth.emailPlaceholder')}
+          error={errors.email?.message ? t(errors.email.message) : undefined}
           {...register('email')}
         />
         <Input
-          label="Password"
+          label={t('auth.passwordLabel')}
           type="password"
           autoComplete="new-password"
-          placeholder="At least 8 characters"
-          error={errors.password?.message}
+          placeholder={t('auth.passwordCreatePlaceholder')}
+          error={errors.password?.message ? t(errors.password.message) : undefined}
           {...register('password')}
         />
         <Input
-          label="Confirm password"
+          label={t('auth.confirmPasswordLabel')}
           type="password"
           autoComplete="new-password"
-          placeholder="Re-enter your password"
-          error={errors.confirmPassword?.message}
+          placeholder={t('auth.confirmPasswordPlaceholder')}
+          error={errors.confirmPassword?.message ? t(errors.confirmPassword.message) : undefined}
           {...register('confirmPassword')}
         />
         <Button type="submit" fullWidth isLoading={isSubmitting}>
-          Create account
+          {t('auth.createAccountButton')}
         </Button>
       </form>
 
-      <div className="auth__divider">or</div>
+      <div className="auth__divider">{t('common.or')}</div>
 
-      <GoogleButton onClick={handleGoogle} isLoading={isGoogleLoading} label="Sign up with Google" />
+      <GoogleButton onClick={handleGoogle} isLoading={isGoogleLoading} label={t('auth.googleSignUp')} />
     </AuthShell>
   )
 }

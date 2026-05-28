@@ -1,15 +1,20 @@
 import { supabase } from '@/shared/lib/supabase'
+import type { TodoCategory } from '@/shared/constants/categories'
 import type { Todo } from '../types/todo.types'
 
 interface CreateTodoParams {
   title: string
   description: string | null
+  due_date: string | null
+  category: TodoCategory | null
 }
 
 interface UpdateTodoParams {
   id: string
   title?: string
   description?: string | null
+  due_date?: string | null
+  category?: TodoCategory | null
   is_completed?: boolean
 }
 
@@ -24,14 +29,14 @@ export const todoService = {
     return data
   },
 
-  async create({ title, description }: CreateTodoParams): Promise<Todo> {
+  async create({ title, description, due_date, category }: CreateTodoParams): Promise<Todo> {
     const { data: userData, error: userError } = await supabase.auth.getUser()
     if (userError) throw userError
     if (!userData.user) throw new Error('You must be signed in to create a todo')
 
     const { data, error } = await supabase
       .from('todos')
-      .insert({ title, description, user_id: userData.user.id })
+      .insert({ title, description, due_date, category, user_id: userData.user.id })
       .select()
       .single()
     if (error) throw error

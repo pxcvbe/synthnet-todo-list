@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { CheckCheck } from 'lucide-react'
-import { Card } from '@/shared/components'
+import { Card, LanguageSwitcher, ThemeToggle } from '@/shared/components'
 import './auth.css'
 
 interface AuthShellProps {
@@ -13,6 +13,10 @@ interface AuthShellProps {
 export function AuthShell({ title, subtitle, children, footer }: AuthShellProps) {
   return (
     <div className="auth">
+      <div className="auth__controls">
+        <LanguageSwitcher />
+        <ThemeToggle />
+      </div>
       <Card className="auth__card">
         <div className="auth__brand">
           <span className="auth__brand-mark">

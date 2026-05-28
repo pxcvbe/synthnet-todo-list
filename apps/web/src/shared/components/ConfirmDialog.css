@@ -1,0 +1,62 @@
+.confirm {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: var(--space-base);
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: confirm-overlay-in 150ms ease;
+}
+
+.confirm__dialog {
+  width: 100%;
+  max-width: 400px;
+  padding: var(--space-lg);
+  background-color: var(--color-surface-card);
+  border: 1px solid var(--color-hairline-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  animation: confirm-dialog-in 150ms ease;
+}
+
+.confirm__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: var(--space-xs);
+}
+
+.confirm__message {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-body);
+  margin-bottom: var(--space-lg);
+  word-break: break-word;
+}
+
+.confirm__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-xs);
+}
+
+@keyframes confirm-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes confirm-dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

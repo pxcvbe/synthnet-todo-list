@@ -20,12 +20,16 @@ create table if not exists todos (
   title text not null,
   description text,
   is_completed boolean default false,
+  due_date date,
+  category text check (category is null or category in ('work', 'personal', 'shopping', 'health', 'other')),
   created_at timestamptz default now(),
   updated_at timestamptz default now()
 );
 
 create index if not exists todos_user_id_idx on todos (user_id);
 create index if not exists todos_created_at_idx on todos (created_at desc);
+create index if not exists todos_category_idx on todos (category);
+create index if not exists todos_due_date_idx on todos (due_date);
 
 -- =========================================================
 -- updated_at trigger

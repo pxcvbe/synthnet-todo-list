@@ -1,0 +1,116 @@
+{
+  "app": {
+    "name": "Synth NET"
+  },
+  "language": {
+    "en": "English",
+    "id": "Indonesia",
+    "switch": "Change language"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "save": "Save",
+    "or": "or"
+  },
+  "auth": {
+    "signInTitle": "Sign in",
+    "signInSubtitle": "Welcome back. Enter your details to continue.",
+    "signUpTitle": "Create account",
+    "signUpSubtitle": "Start organizing your day in seconds.",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@example.com",
+    "passwordLabel": "Password",
+    "passwordSignInPlaceholder": "••••••••",
+    "passwordCreatePlaceholder": "At least 8 characters",
+    "confirmPasswordLabel": "Confirm password",
+    "confirmPasswordPlaceholder": "Re-enter your password",
+    "fullNameLabel": "Full name",
+    "fullNamePlaceholder": "Jane Doe",
+    "signInButton": "Sign in",
+    "createAccountButton": "Create account",
+    "google": "Continue with Google",
+    "googleSignUp": "Sign up with Google",
+    "noAccount": "Don't have an account?",
+    "createOne": "Create one",
+    "haveAccount": "Already have an account?",
+    "signInLink": "Sign in"
+  },
+  "dashboard": {
+    "title": "Your todos",
+    "stats": "{{active}} active · {{completed}} completed",
+    "searchPlaceholder": "Search todos..."
+  },
+  "todo": {
+    "titleLabel": "Title",
+    "titlePlaceholder": "What needs to be done?",
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "Add details (optional)",
+    "dueDateLabel": "Due date",
+    "categoryLabel": "Category",
+    "categoryNone": "No category",
+    "add": "Add todo",
+    "saveChanges": "Save changes",
+    "edit": "Edit todo",
+    "delete": "Delete todo",
+    "markComplete": "Mark as completed",
+    "markIncomplete": "Mark as not completed",
+    "overdue": "Overdue",
+    "loading": "Loading todos...",
+    "error": "Something went wrong loading your todos. Please try again.",
+    "emptyTitle": "Nothing here yet",
+    "emptyText": "Add your first todo to get started.",
+    "noResultsTitle": "No matching todos",
+    "noResultsText": "Try a different search or filter."
+  },
+  "filter": {
+    "all": "All",
+    "active": "Active",
+    "completed": "Completed",
+    "allCategories": "All categories"
+  },
+  "category": {
+    "work": "Work",
+    "personal": "Personal",
+    "shopping": "Shopping",
+    "health": "Health",
+    "other": "Other"
+  },
+  "account": {
+    "menu": "Account menu",
+    "signOut": "Sign out"
+  },
+  "dialog": {
+    "deleteTodoTitle": "Delete todo?",
+    "deleteTodoMessage": "\"{{title}}\" will be permanently deleted. This cannot be undone.",
+    "deleteConfirm": "Delete",
+    "signOutTitle": "Sign out?",
+    "signOutMessage": "You'll need to sign in again to access your todos.",
+    "signOutConfirm": "Sign out"
+  },
+  "validation": {
+    "emailRequired": "Email is required",
+    "emailInvalid": "Enter a valid email",
+    "passwordRequired": "Password is required",
+    "passwordMin": "Password must be at least 8 characters",
+    "nameMin": "Name must be at least 2 characters",
+    "confirmRequired": "Please confirm your password",
+    "passwordsNoMatch": "Passwords do not match",
+    "titleRequired": "Title is required",
+    "titleMax": "Title is too long",
+    "descriptionMax": "Description is too long"
+  },
+  "toast": {
+    "welcomeBack": "Welcome back!",
+    "accountCreated": "Account created! Check your email to confirm, then sign in.",
+    "signInFailed": "Failed to sign in",
+    "createAccountFailed": "Failed to create account",
+    "googleFailed": "Google sign-in failed",
+    "signOutFailed": "Failed to sign out",
+    "todoAdded": "Todo added",
+    "todoUpdated": "Todo updated",
+    "todoDeleted": "Todo deleted",
+    "todoAddFailed": "Failed to add todo",
+    "todoUpdateFailed": "Failed to update todo",
+    "todoDeleteFailed": "Failed to delete todo"
+  }
+}

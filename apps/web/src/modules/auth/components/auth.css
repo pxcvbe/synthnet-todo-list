@@ -1,4 +1,5 @@
 .auth {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7,6 +8,15 @@
   background:
     radial-gradient(circle at 50% 0%, var(--color-sky-light), transparent 60%),
     var(--color-canvas);
+}
+
+.auth__controls {
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
 }
 
 .auth__card {

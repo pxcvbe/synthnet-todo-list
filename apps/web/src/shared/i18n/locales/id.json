@@ -1,0 +1,116 @@
+{
+  "app": {
+    "name": "Synth NET"
+  },
+  "language": {
+    "en": "English",
+    "id": "Indonesia",
+    "switch": "Ganti bahasa"
+  },
+  "common": {
+    "cancel": "Batal",
+    "save": "Simpan",
+    "or": "atau"
+  },
+  "auth": {
+    "signInTitle": "Masuk",
+    "signInSubtitle": "Selamat datang kembali. Masukkan detail Anda untuk lanjut.",
+    "signUpTitle": "Buat akun",
+    "signUpSubtitle": "Mulai atur hari Anda dalam hitungan detik.",
+    "emailLabel": "Email",
+    "emailPlaceholder": "anda@contoh.com",
+    "passwordLabel": "Kata sandi",
+    "passwordSignInPlaceholder": "••••••••",
+    "passwordCreatePlaceholder": "Minimal 8 karakter",
+    "confirmPasswordLabel": "Konfirmasi kata sandi",
+    "confirmPasswordPlaceholder": "Masukkan ulang kata sandi Anda",
+    "fullNameLabel": "Nama lengkap",
+    "fullNamePlaceholder": "Budi Santoso",
+    "signInButton": "Masuk",
+    "createAccountButton": "Buat akun",
+    "google": "Lanjut dengan Google",
+    "googleSignUp": "Daftar dengan Google",
+    "noAccount": "Belum punya akun?",
+    "createOne": "Buat akun",
+    "haveAccount": "Sudah punya akun?",
+    "signInLink": "Masuk"
+  },
+  "dashboard": {
+    "title": "Daftar tugas Anda",
+    "stats": "{{active}} aktif · {{completed}} selesai",
+    "searchPlaceholder": "Cari tugas..."
+  },
+  "todo": {
+    "titleLabel": "Judul",
+    "titlePlaceholder": "Apa yang perlu dikerjakan?",
+    "descriptionLabel": "Deskripsi",
+    "descriptionPlaceholder": "Tambah detail (opsional)",
+    "dueDateLabel": "Tenggat",
+    "categoryLabel": "Kategori",
+    "categoryNone": "Tanpa kategori",
+    "add": "Tambah tugas",
+    "saveChanges": "Simpan perubahan",
+    "edit": "Ubah tugas",
+    "delete": "Hapus tugas",
+    "markComplete": "Tandai selesai",
+    "markIncomplete": "Tandai belum selesai",
+    "overdue": "Terlewat",
+    "loading": "Memuat tugas...",
+    "error": "Terjadi kesalahan saat memuat tugas Anda. Coba lagi.",
+    "emptyTitle": "Belum ada apa-apa",
+    "emptyText": "Tambahkan tugas pertama Anda untuk memulai.",
+    "noResultsTitle": "Tidak ada tugas yang cocok",
+    "noResultsText": "Coba kata kunci atau filter lain."
+  },
+  "filter": {
+    "all": "Semua",
+    "active": "Aktif",
+    "completed": "Selesai",
+    "allCategories": "Semua kategori"
+  },
+  "category": {
+    "work": "Pekerjaan",
+    "personal": "Pribadi",
+    "shopping": "Belanja",
+    "health": "Kesehatan",
+    "other": "Lainnya"
+  },
+  "account": {
+    "menu": "Menu akun",
+    "signOut": "Keluar"
+  },
+  "dialog": {
+    "deleteTodoTitle": "Hapus tugas?",
+    "deleteTodoMessage": "\"{{title}}\" akan dihapus permanen. Tindakan ini tidak bisa dibatalkan.",
+    "deleteConfirm": "Hapus",
+    "signOutTitle": "Keluar?",
+    "signOutMessage": "Anda perlu masuk lagi untuk mengakses tugas Anda.",
+    "signOutConfirm": "Keluar"
+  },
+  "validation": {
+    "emailRequired": "Email wajib diisi",
+    "emailInvalid": "Masukkan email yang valid",
+    "passwordRequired": "Kata sandi wajib diisi",
+    "passwordMin": "Kata sandi minimal 8 karakter",
+    "nameMin": "Nama minimal 2 karakter",
+    "confirmRequired": "Mohon konfirmasi kata sandi Anda",
+    "passwordsNoMatch": "Kata sandi tidak cocok",
+    "titleRequired": "Judul wajib diisi",
+    "titleMax": "Judul terlalu panjang",
+    "descriptionMax": "Deskripsi terlalu panjang"
+  },
+  "toast": {
+    "welcomeBack": "Selamat datang kembali!",
+    "accountCreated": "Akun dibuat! Cek email Anda untuk konfirmasi, lalu masuk.",
+    "signInFailed": "Gagal masuk",
+    "createAccountFailed": "Gagal membuat akun",
+    "googleFailed": "Gagal masuk dengan Google",
+    "signOutFailed": "Gagal keluar",
+    "todoAdded": "Tugas ditambahkan",
+    "todoUpdated": "Tugas diperbarui",
+    "todoDeleted": "Tugas dihapus",
+    "todoAddFailed": "Gagal menambah tugas",
+    "todoUpdateFailed": "Gagal memperbarui tugas",
+    "todoDeleteFailed": "Gagal menghapus tugas"
+  }
+}

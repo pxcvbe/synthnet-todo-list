@@ -8,9 +8,14 @@ follows a **modular monolith** architecture designed to scale.
 
 - Email/password authentication + Google OAuth (Supabase Auth)
 - Full todo CRUD: create, read, update, delete, and mark complete
+- **Due dates** (with overdue highlighting) and **categories** (Work / Personal / Shopping / Health / Other)
+- **Search** todos by title/description
+- Filter by status (All / Active / Completed) and category
+- **Profile avatar** (from DB `avatar_url`, default person icon) with account dropdown
+- **Confirmation dialogs** for destructive actions (delete todo, sign out)
+- **Internationalization** — English (US) & Indonesian with flag switcher, persisted
 - Per-user data isolation enforced by Postgres Row Level Security
 - Optimistic completion toggle with TanStack Query
-- Filter todos by All / Active / Completed
 - Light & dark mode (system-aware, persisted)
 - Responsive, mobile-friendly, minimal UI
 
@@ -85,6 +90,11 @@ In the Supabase dashboard → **SQL Editor**, run the contents of
 [`supabase/schema.sql`](supabase/schema.sql). This creates the `profiles` and `todos`
 tables, the `updated_at` trigger, the auto-profile trigger, and enables Row Level Security
 with per-user policies.
+
+> **Already created the DB with an earlier version of `schema.sql`?** Run the incremental
+> migrations in [`supabase/migrations/`](supabase/migrations) in order. In particular,
+> [`0002_todo_due_date_category.sql`](supabase/migrations/0002_todo_due_date_category.sql)
+> adds the `due_date` and `category` columns required by the latest UI.
 
 ### 4. Enable Google OAuth (optional)
 

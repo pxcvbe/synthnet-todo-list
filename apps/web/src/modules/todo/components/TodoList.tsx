@@ -1,4 +1,5 @@
-import { ListTodo } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import { ListTodo, SearchX } from 'lucide-react'
 import { Spinner } from '@/shared/components'
 import type { Todo } from '../types/todo.types'
 import type { TodoFormValues } from '../schemas/todo.schema'
@@ -9,6 +10,7 @@ interface TodoListProps {
   todos: Todo[]
   isLoading: boolean
   isError: boolean
+  isFiltered: boolean
   updatingId?: string
   deletingId?: string
   onToggle: (todo: Todo) => void
@@ -20,16 +22,19 @@ export function TodoList({
   todos,
   isLoading,
   isError,
+  isFiltered,
   updatingId,
   deletingId,
   onToggle,
   onUpdate,
   onDelete,
 }: TodoListProps) {
+  const { t } = useTranslation()
+
   if (isLoading) {
     return (
       <div className="todo-list__state">
-        <Spinner label="Loading todos..." />
+        <Spinner label={t('todo.loading')} />
       </div>
     )
   }
@@ -37,7 +42,7 @@ export function TodoList({
   if (isError) {
     return (
       <div className="todo-list__state">
-        <p>Something went wrong loading your todos. Please try again.</p>
+        <p>{t('todo.error')}</p>
       </div>
     )
   }
@@ -45,9 +50,13 @@ export function TodoList({
   if (todos.length === 0) {
     return (
       <div className="todo-list__empty">
-        <ListTodo size={40} aria-hidden />
-        <p className="todo-list__empty-title">Nothing here yet</p>
-        <p className="todo-list__empty-text">Add your first todo to get started.</p>
+        {isFiltered ? <SearchX size={40} aria-hidden /> : <ListTodo size={40} aria-hidden />}
+        <p className="todo-list__empty-title">
+          {isFiltered ? t('todo.noResultsTitle') : t('todo.emptyTitle')}
+        </p>
+        <p className="todo-list__empty-text">
+          {isFiltered ? t('todo.noResultsText') : t('todo.emptyText')}
+        </p>
       </div>
     )
   }

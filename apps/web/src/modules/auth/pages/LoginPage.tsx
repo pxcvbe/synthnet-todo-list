@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
 import { Button, Input } from '@/shared/components'
 import { ROUTES } from '@/shared/constants/routes'
@@ -12,6 +13,7 @@ import { AuthShell } from '../components/AuthShell'
 import { GoogleButton } from '../components/GoogleButton'
 
 export function LoginPage() {
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const [isGoogleLoading, setIsGoogleLoading] = useState(false)
 
@@ -26,10 +28,10 @@ export function LoginPage() {
   const onSubmit = async (values: LoginInput) => {
     try {
       await authService.signInWithPassword(values)
-      toast.success('Welcome back!')
+      toast.success(t('toast.welcomeBack'))
       navigate(ROUTES.dashboard)
     } catch (error) {
-      toast.error(error instanceof Error ? error.message : 'Failed to sign in')
+      toast.error(error instanceof Error ? error.message : t('toast.signInFailed'))
     }
   }
 
@@ -38,46 +40,46 @@ export function LoginPage() {
     try {
       await authService.signInWithGoogle()
     } catch (error) {
-      toast.error(error instanceof Error ? error.message : 'Google sign-in failed')
+      toast.error(error instanceof Error ? error.message : t('toast.googleFailed'))
       setIsGoogleLoading(false)
     }
   }
 
   return (
     <AuthShell
-      title="Sign in"
-      subtitle="Welcome back. Enter your details to continue."
+      title={t('auth.signInTitle')}
+      subtitle={t('auth.signInSubtitle')}
       footer={
         <>
-          Don&apos;t have an account? <Link to={ROUTES.register}>Create one</Link>
+          {t('auth.noAccount')} <Link to={ROUTES.register}>{t('auth.createOne')}</Link>
         </>
       }
     >
       <form className="auth__form" onSubmit={handleSubmit(onSubmit)} noValidate>
         <Input
-          label="Email"
+          label={t('auth.emailLabel')}
           type="email"
           autoComplete="email"
-          placeholder="you@example.com"
-          error={errors.email?.message}
+          placeholder={t('auth.emailPlaceholder')}
+          error={errors.email?.message ? t(errors.email.message) : undefined}
           {...register('email')}
         />
         <Input
-          label="Password"
+          label={t('auth.passwordLabel')}
           type="password"
           autoComplete="current-password"
-          placeholder="••••••••"
-          error={errors.password?.message}
+          placeholder={t('auth.passwordSignInPlaceholder')}
+          error={errors.password?.message ? t(errors.password.message) : undefined}
           {...register('password')}
         />
         <Button type="submit" fullWidth isLoading={isSubmitting}>
-          Sign in
+          {t('auth.signInButton')}
         </Button>
       </form>
 
-      <div className="auth__divider">or</div>
+      <div className="auth__divider">{t('common.or')}</div>
 
-      <GoogleButton onClick={handleGoogle} isLoading={isGoogleLoading} />
+      <GoogleButton onClick={handleGoogle} isLoading={isGoogleLoading} label={t('auth.google')} />
     </AuthShell>
   )
 }

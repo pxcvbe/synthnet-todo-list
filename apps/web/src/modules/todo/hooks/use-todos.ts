@@ -1,4 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useTranslation } from 'react-i18next'
 import { toast } from 'sonner'
 import { QUERY_KEYS } from '@/shared/constants/query-keys'
 import { todoService } from '../services/todo.service'
@@ -13,28 +14,30 @@ export function useTodos() {
 
 export function useCreateTodo() {
   const queryClient = useQueryClient()
+  const { t } = useTranslation()
   return useMutation({
     mutationFn: todoService.create,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: QUERY_KEYS.todos })
-      toast.success('Todo added')
+      toast.success(t('toast.todoAdded'))
     },
     onError: (error) => {
-      toast.error(error instanceof Error ? error.message : 'Failed to add todo')
+      toast.error(error instanceof Error ? error.message : t('toast.todoAddFailed'))
     },
   })
 }
 
 export function useUpdateTodo() {
   const queryClient = useQueryClient()
+  const { t } = useTranslation()
   return useMutation({
     mutationFn: todoService.update,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: QUERY_KEYS.todos })
-      toast.success('Todo updated')
+      toast.success(t('toast.todoUpdated'))
     },
     onError: (error) => {
-      toast.error(error instanceof Error ? error.message : 'Failed to update todo')
+      toast.error(error instanceof Error ? error.message : t('toast.todoUpdateFailed'))
     },
   })
 }
@@ -42,6 +45,7 @@ export function useUpdateTodo() {
 /** Optimistic completion toggle — flips immediately, rolls back on error. */
 export function useToggleTodo() {
   const queryClient = useQueryClient()
+  const { t } = useTranslation()
   return useMutation({
     mutationFn: ({ id, is_completed }: { id: string; is_completed: boolean }) =>
       todoService.update({ id, is_completed }),
@@ -57,7 +61,7 @@ export function useToggleTodo() {
       if (context?.previous) {
         queryClient.setQueryData(QUERY_KEYS.todos, context.previous)
       }
-      toast.error(error instanceof Error ? error.message : 'Failed to update todo')
+      toast.error(error instanceof Error ? error.message : t('toast.todoUpdateFailed'))
     },
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: QUERY_KEYS.todos })
@@ -67,14 +71,15 @@ export function useToggleTodo() {
 
 export function useDeleteTodo() {
   const queryClient = useQueryClient()
+  const { t } = useTranslation()
   return useMutation({
     mutationFn: todoService.remove,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: QUERY_KEYS.todos })
-      toast.success('Todo deleted')
+      toast.success(t('toast.todoDeleted'))
     },
     onError: (error) => {
-      toast.error(error instanceof Error ? error.message : 'Failed to delete todo')
+      toast.error(error instanceof Error ? error.message : t('toast.todoDeleteFailed'))
     },
   })
 }

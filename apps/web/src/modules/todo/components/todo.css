@@ -5,10 +5,22 @@
   gap: var(--space-base);
 }
 
+.todo-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-base);
+}
+
 .todo-form__actions {
   display: flex;
   justify-content: flex-end;
   gap: var(--space-xs);
+}
+
+@media (max-width: 480px) {
+  .todo-form__row {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* List */
@@ -104,6 +116,55 @@
   color: var(--color-body);
   white-space: pre-wrap;
   word-break: break-word;
+}
+
+.todo-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xs) var(--space-sm);
+  margin-top: var(--space-xxs);
+}
+
+.todo-card__due {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--color-body);
+}
+
+.todo-card__due--overdue {
+  color: var(--color-error);
+}
+
+.todo-card__overdue-tag {
+  margin-left: 4px;
+  padding: 1px 6px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--color-error);
+  background-color: color-mix(in srgb, var(--color-error) 14%, transparent);
+  border-radius: var(--radius-pill);
+}
+
+.category-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--color-body);
+  padding: 2px 8px;
+  background-color: var(--color-surface-strong);
+  border-radius: var(--radius-pill);
+}
+
+.category-badge__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-pill);
 }
 
 .todo-card__actions {

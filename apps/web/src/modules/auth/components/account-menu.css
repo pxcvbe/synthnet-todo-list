@@ -1,0 +1,18 @@
+.account-menu__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-ink);
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account-menu__email {
+  font-size: 12px;
+  color: var(--color-muted);
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
